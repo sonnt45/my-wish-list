@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="display-4 pt-4 pb-4">Wish List of Lego Sets</h1>
+		<h1 class="display-4 pt-4 pb-4">Wish List</h1>
 		<div id="wishlist"></div>
 	</div>
 
@@ -204,7 +204,7 @@
 		};
 
 		let appendSetImages = function(setIndex) {
-			let html = '<div class="col-4">';
+			let html = '<div class="col-lg-4 col-sm-12">';
 			html += '<div id="carousel' + setIndex + '" class="carousel slide" data-ride="carousel">';
 			html += '<ol class="carousel-indicators">';
 			$.each(sets[setIndex].images, function(imageIndex, image) {
@@ -233,7 +233,7 @@
 		};
 
 		let appendSetInfo = function(setIndex) {
-			let html = '<div class="col-8">';
+			let html = '<div class="col-lg-8 col-sm-12 mt-2">';
 			html += '<h3><a href="' + brands[sets[setIndex].brandIndex].website + '" target="_blank">' + brands[sets[setIndex].brandIndex].name + '</a> | <a href="' + sets[setIndex].reference + '" target="_blank">' + sets[setIndex].code + '</a></h3>';
 			html += '<h1>' + sets[setIndex].name + '</h1>';
 			html += '<h4>Series: ' + sets[setIndex].series + '</h4>';
