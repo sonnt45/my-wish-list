@@ -3,32 +3,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Wish List</title>
+    <title>My Wish List</title>
     <link rel="stylesheet" href="assets/css/bootstrap-4.1.3.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
 <div class="container">
-    <h1 class="display-4 pt-4 pb-4">Wish List</h1>
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="lego-tab-nav" data-toggle="tab" href="#lego-tab" role="tab"
-               aria-controls="lego-tab" aria-selected="true">Lego Sets</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="diecast-tab-nav" data-toggle="tab" href="#diecast-tab" role="tab"
-               aria-controls="diecast-tab" aria-selected="false">Diecast Cars</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane fade show active" id="lego-tab" role="tabpanel" aria-labelledby="lego-tab-nav"></div>
-        <div class="tab-pane fade" id="diecast-tab" role="tabpanel" aria-labelledby="diecast-tab-nav"></div>
+    <h1 class="display-4 pt-4 pb-4">My Wish List</h1>
+    <div id="wishlist">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="lego-tab-nav" data-toggle="tab" href="#lego-tab" role="tab"
+                   aria-controls="lego-tab" aria-selected="true">Lego Sets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="die-cast-tab-nav" data-toggle="tab" href="#die-cast-tab" role="tab"
+                   aria-controls="die-cast-tab" aria-selected="false">Die-cast Cars</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="lego-tab" role="tabpanel" aria-labelledby="lego-tab-nav"></div>
+            <div class="tab-pane fade" id="die-cast-tab" role="tabpanel" aria-labelledby="die-cast-tab-nav"></div>
+        </div>
     </div>
 </div>
 
-<script src="assets/js/jquery-3.3.1.slim.min.js"></script>
-<script src="assets/js/bootstrap-4.1.3.min.js"></script>
-<script src="assets/js/popper-1.14.3.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-4.1.3.min.js"></script>
+<script type="text/javascript" src="assets/js/popper-1.14.3.min.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script src="data/lego-sets.js"></script>
+<script src="data/diecast-models.js"></script>
+<script src="data/diecast-original-models.js"></script>
 </body>
 </html>

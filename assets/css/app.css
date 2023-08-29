@@ -1,0 +1,24 @@
+#wishlist a {
+    text-decoration: none;
+}
+
+#wishlist .title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
+#wishlist .subtitle {
+    font-size: 1.5rem;
+}
+
+#wishlist .description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+#wishlist .description p {
+    margin-bottom: 0.5rem;
+}
