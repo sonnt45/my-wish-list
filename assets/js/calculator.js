@@ -39,67 +39,90 @@ const initCalculator = function () {
     }, "Only digits allowed");
 
     const pinSize = 8;
+    const modeSelect = $('#mode');
     const originalValueInput = $('#original-value');
     const modelValueInput = $('#model-value');
     const brickValueInput = $('#brick-value');
     const scaleInput = $('#scale');
+    const calculateButton = $('#calculate-button');
+    const logArea = $('#log textarea');
 
     const calculateFromOriginalValueAndScale = function () {
-        modelValueInput.val(originalValueInput.val() / scaleInput.val());
-        brickValueInput.val(Math.round(modelValueInput.val() / pinSize));
-        addLog('Original Value = ' + originalValueInput.val() + '; Scale = ' + scaleInput.val() +
-            ' => Model Value=' + modelValueInput.val() + '; Brick Value=' + brickValueInput.val());
+        if (originalValueInput.val() === '') {
+            originalValueInput.focus();
+        } else if (scaleInput.val() === '') {
+            scaleInput.focus();
+        } else {
+            modelValueInput.val(originalValueInput.val() / scaleInput.val());
+            brickValueInput.val(Math.round(modelValueInput.val() / pinSize));
+            addLog('OriginalValue=' + originalValueInput.val() + '; Scale=' + scaleInput.val() +
+                ' => ModelValue=' + modelValueInput.val() + '; BrickValue=' + brickValueInput.val());
+        }
     };
 
     const calculateFromBrickValueAndScale = function () {
-        modelValueInput.val(brickValueInput.val() * pinSize);
-        originalValueInput.val(modelValueInput.val() * scaleInput.val());
-        addLog('Brick Value = ' + brickValueInput.val() + '; Scale = ' + scaleInput.val() +
-            ' => Original Value=' + originalValueInput.val() + '; Model Value=' + modelValueInput.val());
+        if (brickValueInput.val() === '') {
+            brickValueInput.focus();
+        } else if (scaleInput.val() === '') {
+            scaleInput.focus();
+        } else {
+            modelValueInput.val(brickValueInput.val() * pinSize);
+            originalValueInput.val(modelValueInput.val() * scaleInput.val());
+            addLog('BrickValue=' + brickValueInput.val() + '; Scale=' + scaleInput.val() +
+                ' => OriginalValue=' + originalValueInput.val() + '; ModelValue=' + modelValueInput.val());
+        }
     };
 
     const addLog = function (content) {
-        const log = $('#log');
-        if (log.text() === '') {
-            log.text(content);
+        if (logArea.text() === '') {
+            logArea.text(content);
         } else {
-            log.text(log.text() + '\n' + content);
+            logArea.text(logArea.text() + '\n' + content);
         }
     };
 
-    originalValueInput.change(function () {
-        if (originalValueInput.val() === '') {
-            originalValueInput.focus();
-        } else {
-            if (scaleInput.val() !== '') {
-                calculateFromOriginalValueAndScale();
-            } else {
-                scaleInput.focus();
-            }
+    modeSelect.change(function () {
+        switch (modeSelect.val()) {
+            case '1':
+                originalValueInput.removeAttr('disabled');
+                modelValueInput.attr('disabled', 'disabled');
+                brickValueInput.attr('disabled', 'disabled');
+                scaleInput.removeAttr('disabled');
+                calculateButton.removeAttr('disabled');
+                break;
+            case '2':
+                originalValueInput.removeAttr('disabled');
+                modelValueInput.attr('disabled', 'disabled');
+                brickValueInput.removeAttr('disabled');
+                scaleInput.attr('disabled', 'disabled');
+                calculateButton.removeAttr('disabled');
+                break;
+            case '3':
+                originalValueInput.attr('disabled', 'disabled');
+                modelValueInput.attr('disabled', 'disabled');
+                brickValueInput.removeAttr('disabled');
+                scaleInput.removeAttr('disabled');
+                calculateButton.removeAttr('disabled');
+                break;
+            default:
+                originalValueInput.attr('disabled', 'disabled');
+                modelValueInput.attr('disabled', 'disabled');
+                brickValueInput.attr('disabled', 'disabled');
+                scaleInput.attr('disabled', 'disabled');
+                calculateButton.attr('disabled', 'disabled');
         }
     });
 
-    brickValueInput.change(function () {
-        if (brickValueInput.val() === '') {
-            brickValueInput.focus();
-        } else {
-            if (scaleInput.val() !== '') {
+    calculateButton.click(function () {
+        switch (modeSelect.val()) {
+            case '1':
+                calculateFromOriginalValueAndScale();
+                break;
+            case '2':
+                break;
+            case '3':
                 calculateFromBrickValueAndScale();
-            } else {
-                scaleInput.focus();
-            }
-        }
-    });
-
-    scaleInput.change(function () {
-        if (scaleInput.val() === '') {
-            scaleInput.focus();
-        } else {
-            if (originalValueInput.val() !== '') {
-                calculateFromOriginalValueAndScale();
-            } else {
-                originalValueInput.focus();
-            }
+                break;
         }
     });
 };

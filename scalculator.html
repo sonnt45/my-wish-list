@@ -12,13 +12,24 @@
     <h1 class="display-4 pt-4 pb-4">Scale Calculator</h1>
     <form id="calculator" action="javascript:void(0)">
         <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="mode">Mode</label>
+                    <select class="form-control" id="mode">
+                        <option>Please select</option>
+                        <option value="1">Original Value, Scale => Model Value, Brick Value</option>
+                        <option value="2">Original Value, Brick Value => Model Value, Scale</option>
+                        <option value="3">Brick Value, Scale => Original Value, Model Value</option>
+                    </select>
+                </div>
+            </div>
             <div class="col-md-6 col-sm-12">
                 <div class="form-group">
                     <label for="original-value">Original Value</label>
                     <div class="input-group">
-                        <input type="text" class="form-control numeric" id="original-value"/>
+                        <input type="text" class="form-control numeric" id="original-value" disabled/>
                         <div class="input-group-append">
-                            <span class="input-group-text">cm</span>
+                            <span class="input-group-text">mm</span>
                         </div>
                     </div>
                 </div>
@@ -29,7 +40,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control numeric" id="model-value" disabled/>
                         <div class="input-group-append">
-                            <span class="input-group-text">cm</span>
+                            <span class="input-group-text">mm</span>
                         </div>
                     </div>
                 </div>
@@ -38,7 +49,7 @@
                 <div class="form-group">
                     <label for="brick-value">Brick Value</label>
                     <div class="input-group">
-                        <input type="text" class="form-control numeric" id="brick-value"/>
+                        <input type="text" class="form-control numeric" id="brick-value" disabled/>
                         <div class="input-group-append">
                             <span class="input-group-text">pins</span>
                         </div>
@@ -52,30 +63,28 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">1:</span>
                         </div>
-                        <input type="text" class="form-control numeric" id="scale"/>
+                        <input type="text" class="form-control numeric" id="scale" disabled/>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label for="mode">Mode</label>
-                    <select class="form-control" id="mode">
-                        <option value="1">Origin, Scale => Model, Brick</option>
-                        <option value="2">Brick, Scale => Origin, Model</option>
-                        <option value="3">Origin, Brick => Model, Scale</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <button type="button" class="btn btn-block btn-outline-primary">Calculate</button>
-                    <button type="reset" class="btn btn-block btn-outline-secondary">Reset</button>
                 </div>
             </div>
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label for="log">Log</label>
-                    <textarea class="form-control" id="log" rows="10" disabled></textarea>
+                    <button type="button" class="btn btn-block btn-primary" id="calculate-button" disabled>
+                        Calculate
+                    </button>
+                    <button type="button" class="btn btn-block btn-outline-secondary"
+                            data-toggle="collapse" data-target="#log"
+                            aria-expanded="false" aria-controls="log">
+                        Result Log
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="collapse" id="log">
+                    <div class="form-group">
+                        <label for="log"></label>
+                        <textarea class="form-control" rows="10" disabled></textarea>
+                    </div>
                 </div>
             </div>
         </div>

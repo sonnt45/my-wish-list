@@ -1,4 +1,4 @@
-const legoSets = [
+const modularBuildingSets = [
     {
         code: '16043',
         name: 'Art Gallery Showcase',

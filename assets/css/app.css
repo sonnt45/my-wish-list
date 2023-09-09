@@ -35,3 +35,7 @@
 #calculator .form-group {
     margin-bottom: 0.5rem;
 }
+
+#calculator .btn {
+    margin-top: 1rem;
+}

@@ -1,20 +1,20 @@
-const initLegoTab = function () {
+const initModularBuildingTab = function () {
     const appendSet = function (index) {
-        $('#lego-tab').append(
+        $('#modular-building-tab').append(
             '<div class="card">' +
             '<div class="card-body">' +
             '<div class="row">' +
             '<div class="col-lg-4 col-sm-12 pb-4">' +
-            '<div id="lego-carousel-' + index + '" class="carousel slide" data-ride="carousel">' +
+            '<div id="modular-building-carousel-' + index + '" class="carousel slide" data-ride="carousel">' +
             appendSliderIndicators(index) +
             appendSliderImages(index) +
             appendSliderButtons(index) +
             '</div>' +
             '</div>' +
             '<div class="col-lg-8 col-sm-12">' +
-            appendSubtitle(legoSets[index].code, legoSets[index].brand, legoSets[index].url) +
-            appendTitle(legoSets[index].name, legoSets[index].url) +
-            appendDescription(legoSets[index]) +
+            appendSubtitle(modularBuildingSets[index].code, modularBuildingSets[index].brand, modularBuildingSets[index].url) +
+            appendTitle(modularBuildingSets[index].name, modularBuildingSets[index].url) +
+            appendDescription(modularBuildingSets[index]) +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -24,11 +24,11 @@ const initLegoTab = function () {
 
     const appendSliderIndicators = function (index) {
         let html = '<ol class="carousel-indicators">';
-        $.each(legoSets[index].images, function (imageIndex, image) {
+        $.each(modularBuildingSets[index].images, function (imageIndex, image) {
             if (imageIndex === 0) {
-                html += '<li data-target="#lego-carousel-' + index + '" data-slide-to="' + imageIndex + '" class="active"></li>';
+                html += '<li data-target="#modular-building-carousel-' + index + '" data-slide-to="' + imageIndex + '" class="active"></li>';
             } else {
-                html += '<li data-target="#lego-carousel-' + index + '" data-slide-to="' + imageIndex + '"></li>';
+                html += '<li data-target="#modular-building-carousel-' + index + '" data-slide-to="' + imageIndex + '"></li>';
             }
         });
 
@@ -37,7 +37,7 @@ const initLegoTab = function () {
 
     const appendSliderImages = function (index) {
         let html = '<div class="carousel-inner">';
-        $.each(legoSets[index].images, function (imageIndex, image) {
+        $.each(modularBuildingSets[index].images, function (imageIndex, image) {
             if (imageIndex === 0) {
                 html += '<div class="carousel-item active">' +
                     '<img class="d-block w-100" src="' + image + '" alt=""/>' +
@@ -53,11 +53,11 @@ const initLegoTab = function () {
     };
 
     const appendSliderButtons = function (index) {
-        return '<a class="carousel-control-prev" href="#lego-carousel-' + index + '" role="button" data-slide="prev">' +
+        return '<a class="carousel-control-prev" href="#modular-building-carousel-' + index + '" role="button" data-slide="prev">' +
             '<span class="carousel-control-prev-icon" aria-hidden="true"></span>' +
             '<span class="sr-only">Previous</span>' +
             '</a>' +
-            '<a class="carousel-control-next" href="#lego-carousel-' + index + '" role="button" data-slide="next">' +
+            '<a class="carousel-control-next" href="#modular-building-carousel-' + index + '" role="button" data-slide="next">' +
             '<span class="carousel-control-next-icon" aria-hidden="true"></span>' +
             '<span class="sr-only">Next</span>' +
             '</a>';
@@ -104,7 +104,7 @@ const initLegoTab = function () {
             '</div>';
     };
 
-    $.each(legoSets, function (index, set) {
+    $.each(modularBuildingSets, function (index, set) {
         appendSet(index);
     });
 };
@@ -236,6 +236,6 @@ const initDieCastTab = function () {
 };
 
 $(document).ready(function () {
-    initLegoTab();
+    initModularBuildingTab();
     initDieCastTab();
 });
