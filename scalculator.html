@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scale Calculator</title>
+    <link rel="stylesheet" href="assets/css/bootstrap-4.1.3.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="display-4 pt-4 pb-4">Scale Calculator</h1>
+    <form id="calculator" action="javascript:void(0)">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="original-value">Original Value</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control numeric" id="original-value"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">cm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="model-value">Model Value</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control numeric" id="model-value" disabled/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">cm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="brick-value">Brick Value</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control numeric" id="brick-value"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">pins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="scale">Relative Scale</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">1:</span>
+                        </div>
+                        <input type="text" class="form-control numeric" id="scale"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label for="mode">Mode</label>
+                    <select class="form-control" id="mode">
+                        <option value="1">Origin, Scale => Model, Brick</option>
+                        <option value="2">Brick, Scale => Origin, Model</option>
+                        <option value="3">Origin, Brick => Model, Scale</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <button type="button" class="btn btn-block btn-outline-primary">Calculate</button>
+                    <button type="reset" class="btn btn-block btn-outline-secondary">Reset</button>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="log">Log</label>
+                    <textarea class="form-control" id="log" rows="10" disabled></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="assets/js/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-4.1.3.min.js"></script>
+<script type="text/javascript" src="assets/js/popper-1.14.3.min.js"></script>
+<script type="text/javascript" src="assets/js/calculator.js"></script>
+</body>
+</html>

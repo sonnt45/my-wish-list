@@ -1,24 +1,37 @@
-#wishlist a {
-    text-decoration: none;
+#wishlist .nav.nav-tabs {
+    margin-bottom: 1.25rem;
 }
 
-#wishlist .title {
+#wishlist .tab-content .card {
+    margin-bottom: 1.25rem;
+}
+
+#wishlist .tab-content .title {
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: 1.25rem;
 }
 
-#wishlist .subtitle {
+#wishlist .tab-content .subtitle {
     font-size: 1.5rem;
 }
 
-#wishlist .description {
+#wishlist .tab-content .title a,
+#wishlist .tab-content .subtitle a {
+    text-decoration: none;
+}
+
+#wishlist .tab-content .description {
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.5;
     margin-bottom: 1.25rem;
 }
 
-#wishlist .description p {
+#wishlist .tab-content .description p {
+    margin-bottom: 0.5rem;
+}
+
+#calculator .form-group {
     margin-bottom: 0.5rem;
 }

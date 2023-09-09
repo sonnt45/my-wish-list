@@ -1,7 +1,7 @@
 const initLegoTab = function () {
     const appendSet = function (index) {
         $('#lego-tab').append(
-            '<div class="card mb-4">' +
+            '<div class="card">' +
             '<div class="card-body">' +
             '<div class="row">' +
             '<div class="col-lg-4 col-sm-12 pb-4">' +
@@ -39,9 +39,13 @@ const initLegoTab = function () {
         let html = '<div class="carousel-inner">';
         $.each(legoSets[index].images, function (imageIndex, image) {
             if (imageIndex === 0) {
-                html += '<div class="carousel-item active"><img class="d-block w-100" src="' + image + '" alt=""></div>';
+                html += '<div class="carousel-item active">' +
+                    '<img class="d-block w-100" src="' + image + '" alt=""/>' +
+                    '</div>';
             } else {
-                html += '<div class="carousel-item"><img class="d-block w-100" src="' + image + '" alt=""></div>';
+                html += '<div class="carousel-item">' +
+                    '<img class="d-block w-100" src="' + image + '" alt=""/>' +
+                    '</div>';
             }
         });
 
@@ -110,7 +114,7 @@ const initDieCastTab = function () {
         const originalModel = getOriginalModel(diecastModels[index].originCode);
 
         $('#die-cast-tab').append(
-            '<div class="card mb-4">' +
+            '<div class="card">' +
             '<div class="card-body">' +
             '<div class="row">' +
             '<div class="col-lg-4 col-sm-12 pb-4">' +
@@ -148,9 +152,13 @@ const initDieCastTab = function () {
         let html = '<div class="carousel-inner">';
         $.each(diecastModels[index].images, function (imageIndex, image) {
             if (imageIndex === 0) {
-                html += '<div class="carousel-item active"><img class="d-block w-100" src="' + image + '" alt=""></div>';
+                html += '<div class="carousel-item active">' +
+                    '<img class="d-block w-100" src="' + image + '" alt=""/>' +
+                    '</div>';
             } else {
-                html += '<div class="carousel-item"><img class="d-block w-100" src="' + image + '" alt=""></div>';
+                html += '<div class="carousel-item">' +
+                    '<img class="d-block w-100" src="' + image + '" alt=""/>' +
+                    '</div>';
             }
         });
 
@@ -213,7 +221,7 @@ const initDieCastTab = function () {
             '<td>' + originalModel.height + '</td>' +
             '</tr>' +
             '<tr>' +
-            '<td>Absolute Scale</td>' +
+            '<td>Relative Scale</td>' +
             '<td>1:' + Math.round(1 / (model.length / originalModel.length)) + '</td>' +
             '<td>1:' + Math.round(1 / (model.width / originalModel.width)) + '</td>' +
             '<td>1:' + Math.round(1 / (model.height / originalModel.height)) + '</td>' +
